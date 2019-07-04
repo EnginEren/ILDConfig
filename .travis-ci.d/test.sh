@@ -3,6 +3,8 @@
 ILCSOFT=/cvmfs/clicdp.cern.ch/iLCSoft/builds/current/CI_gcc
 source $ILCSOFT/init_ilcsoft.sh
 
+echo $ILCSOFT
+
 cd /home/ilc/data/Package/StandardConfig/production
 
 ##
