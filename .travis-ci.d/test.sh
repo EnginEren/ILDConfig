@@ -13,7 +13,7 @@ ddsim \
   --inputFiles Examples/bbudsc_3evt/bbudsc_3evt.stdhep \
   --outputFile bbudsc_3evt_SIM_test_${SIM_MODEL}.slcio \
   --compactFile $lcgeo_DIR/ILD/compact/${SIM_MODEL}/${SIM_MODEL}.xml \
-  --steeringFile ddsim_steer.py > travis-ci.log 2>&1
+  --steeringFile ddsim_steer.py > ${PWD}/travis-ci.log 2>&1
 
 ddsimStatus=$?
 
