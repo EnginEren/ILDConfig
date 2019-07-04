@@ -3,7 +3,7 @@
 ILCSOFT=/cvmfs/clicdp.cern.ch/iLCSoft/builds/current/CI_gcc
 source $ILCSOFT/init_ilcsoft.sh
 
-cd /Package/StandardConfig/production
+cd /home/ilc/data/Package/StandardConfig/production
 
 ##
 ## Test DDSim
