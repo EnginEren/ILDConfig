@@ -13,13 +13,12 @@ ddsim \
   --inputFiles Examples/bbudsc_3evt/bbudsc_3evt.stdhep \
   --outputFile bbudsc_3evt_SIM_test_${SIM_MODEL}.slcio \
   --compactFile $lcgeo_DIR/ILD/compact/${SIM_MODEL}/${SIM_MODEL}.xml \
-  --steeringFile ddsim_steer.py > ${PWD}/travis-ci.log 2>&1
+  --steeringFile ddsim_steer.py 
 
 ddsimStatus=$?
 
 if [[ $ddsimStatus != 0 ]]
 then
-  cat travis-ci.log
   echo "-- ERROR - DDSim ${SIM_MODEL}: 3 events test failed"
   exit $ddsimStatus
 else
@@ -46,13 +45,12 @@ Marlin MarlinStdReco.xml \
   --constant.DetectorModel=${REC_MODEL} \
   --constant.OutputBaseName=${outputBaseName} \
   --constant.RunBeamCalReco=false \
-  --global.LCIOInputFiles=bbudsc_3evt_SIM_test_${SIM_MODEL}.slcio > travis-ci.log 2>&1
+  --global.LCIOInputFiles=bbudsc_3evt_SIM_test_${SIM_MODEL}.slcio 
 
 marlinStatus=$?
 
 if [[ $marlinStatus != 0 ]]
 then
-  cat travis-ci.log
   echo "-- ERROR - Marlin ${REC_MODEL} no bg: 3 events test failed"
   exit $marlinStatus
 else
