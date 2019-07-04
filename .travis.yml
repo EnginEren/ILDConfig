@@ -38,7 +38,7 @@ install:
 
 # command to run tests
 script:
-  - ls
+  - ls Package
   - docker run -it --name CI_container -e SIM_MODEL=$SIM_MODEL -e REC_MODEL=$REC_MODEL -v $PKGDIR:/Package -v /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch -d engineren/centos7-ilc /bin/bash
   - docker exec -it CI_container /bin/bash -c ".travis-ci.d/test.sh";
 
