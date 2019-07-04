@@ -39,7 +39,7 @@ install:
 # command to run tests
 script:
   - docker run -it --name CI_container -e SIM_MODEL=$SIM_MODEL -e REC_MODEL=$REC_MODEL -v $PKGDIR:/home/ilc/data/Package -v /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch -d engineren/centos7-ilc /bin/bash
-  - docker exec -it CI_container /bin/bash -c "./Package/.travis-ci.d/test.sh";
+  - docker exec -it --privileged CI_container /bin/bash -c "./Package/.travis-ci.d/test.sh";
   
 
 # Don't send e-mail notifications
