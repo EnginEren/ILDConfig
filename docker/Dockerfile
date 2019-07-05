@@ -46,7 +46,7 @@ WORKDIR Python-2.7.8
 RUN ./configure --prefix=/usr/local && make && make altinstall
 RUN curl https://bootstrap.pypa.io/get-pip.py | python2.7
 RUN pip install opencv-python
-RUN yum install -y libXext libSM libXrender libXmu
+RUN yum install -y libXext libSM libXrender libXmu libGLU
 
 ## switch back to home 
 WORKDIR ${HOME}
