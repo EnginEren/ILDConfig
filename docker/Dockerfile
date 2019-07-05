@@ -65,16 +65,6 @@ RUN printf "\nalias vim=vi\n" >> ${HOME}/.bashrc
 # Make images Grid / Singularity compatible
 RUN mkdir -p /cvmfs /afs /eos
 
-# Set up the ILC user, give it super user rights, and give ownership of ${HOME}.
-RUN echo '%wheel	ALL=(ALL)	NOPASSWD: ALL' >> /etc/sudoers && \
-    adduser ilc && \
-    usermod -aG wheel ilc && \
-    cp /root/.bash* ${HOME}/ && \
-    mkdir ${HOME}/data && \
-    chown -R --from=root ilc ${HOME}
-
-USER ilc
-
 # Start the image not in /root to protect config files
 WORKDIR ${HOME}/data
 
