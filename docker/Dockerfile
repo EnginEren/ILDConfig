@@ -38,8 +38,18 @@ RUN yum upgrade -y -q && \
         bash-completion-extras && \
     yum clean all
 
+
+## python2.7 installation
+RUN wget https://www.python.org/ftp/python/2.7.8/Python-2.7.8.tar.xz
+RUN tar xvfJ Python-2.7.8.tar.xz
+WORKDIR Python-2.7.8
+RUN ./configure --prefix=/usr/local && make && make altinstall
+RUN curl https://bootstrap.pypa.io/get-pip.py | python2.7
 RUN pip install opencv-python
-RUN apt update && apt install -y libsm6 libxext6
+RUN yum install -y libXext libSM libXrender
+
+## switch back to home 
+WORKDIR ${HOME}
 
 # Add h5ls tab completion
 RUN git clone --depth 1 https://github.com/dguest/_h5ls.git /opt/_h5ls && \
