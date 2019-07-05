@@ -38,6 +38,8 @@ RUN yum upgrade -y -q && \
         bash-completion-extras && \
     yum clean all
 
+RUN pip install opencv-python
+RUN apt update && apt install -y libsm6 libxext6
 
 # Add h5ls tab completion
 RUN git clone --depth 1 https://github.com/dguest/_h5ls.git /opt/_h5ls && \
