@@ -22,7 +22,7 @@ SIM.enableGun = False
 ## InputFiles for simulation .stdhep, .slcio, .HEPEvt, .hepevt, .hepmc, .pairs files are supported
 SIM.inputFiles = []
 ## Macro file to execute for runType 'run' or 'vis'
-SIM.macroFile = "run2.mac"
+SIM.macroFile = "gammaGun.mac"
 ## number of events to simulate, used in batch mode
 SIM.numberOfEvents = 1
 ## Outputfile from the simulation,only lcio output is supported

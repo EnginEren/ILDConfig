@@ -27,9 +27,29 @@ Input files for flavor tagging:
 - ./lcfiweights
 	- TMVA weight files
 
-## Docker 
+## Docker and Singularity
 
-singularity exec --bind $PWD:/home/ilc/data/Package --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch docker://engineren/centos7-ilc:latest /bin/bash -c "./Package/.travis-ci.d/generateG4-gun.sh"
+1) Pull the image 
+
+`singularity pull docker://engineren/centos7-ilc:latest`
+
+2) Start the instance 
+
+`singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch centos7-ilc_latest.sif ilc-gun`
+
+3) Run the script
+
+`singularity run instance://ilc-gun ./docker/generateG4-gun.sh 1`
+
+
+If you want to run with `N` containers, you need to create `N` instances with the following loop :
+
+`for in in {1..N}; do singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch centos7-ilc_latest.sif ilc-gun-$i`
+
+and run them : 
+
+`for i in {1..N}; do singularity run instance://ilc-gun-N ./docker/generateG4-gun.sh $i done`
+
 
 ## License and Copyright
 Copyright (C), ILDConfig Authors

@@ -1,0 +1,8 @@
+## slcio files
+*.slcio
+
+## sif file
+*.sif
+
+## log files
+*.log
