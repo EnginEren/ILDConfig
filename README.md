@@ -29,6 +29,7 @@ Input files for flavor tagging:
 
 ## Docker 
 
+singularity exec --bind $PWD:/home/ilc/data/Package --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch docker://engineren/centos7-ilc:latest /bin/bash -c "./Package/.travis-ci.d/generateG4-gun.sh"
 
 ## License and Copyright
 Copyright (C), ILDConfig Authors
