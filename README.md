@@ -48,7 +48,7 @@ If you want to run with `N` containers, you need to create `N` instances with th
 
 and run them : 
 
-`for i in {1..N}; do singularity run instance://ilc-gun-N ./docker/generateG4-gun.sh $i; done`
+`for i in {1..N}; do singularity run instance://ilc-gun-$i ./docker/generateG4-gun.sh $i & done`
 
 
 ## License and Copyright
