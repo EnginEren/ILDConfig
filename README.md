@@ -44,11 +44,11 @@ Input files for flavor tagging:
 
 If you want to run with `N` containers, you need to create `N` instances with the following loop :
 
-`for in in {1..N}; do singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch centos7-ilc_latest.sif ilc-gun-$i`
+`for i in {1..N}; do singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch centos7-ilc_latest.sif ilc-gun-$i; done`
 
 and run them : 
 
-`for i in {1..N}; do singularity run instance://ilc-gun-N ./docker/generateG4-gun.sh $i done`
+`for i in {1..N}; do singularity run instance://ilc-gun-N ./docker/generateG4-gun.sh $i; done`
 
 
 ## License and Copyright
