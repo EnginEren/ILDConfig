@@ -55,6 +55,7 @@ RUN ./ilcsoft-install -i --install-prefix ${ILCSOFT} releases/v02-00/release-bas
 
 ## Installing Eigen3 
 RUN wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/e/eigen3-devel-3.3.4-6.el7.noarch.rpm
+RUN rpm -Uvh eigen3-devel-3.3.4-6.el7.noarch.rpm 
 
 ## Delete unnecessary build folders
 RUN rm -rf /home/ilc/ilcsoft/geant4/build-10.03.p02
