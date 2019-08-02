@@ -29,15 +29,11 @@ Input files for flavor tagging:
 
 ## Docker and Singularity
 
-1) Pull the image 
+1) Start the instance 
 
-`singularity pull docker://engineren/centos7-ilc:latest`
+`singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch docker://engineren/centos7-ilc:latest ilc-gun`
 
-2) Start the instance 
-
-`singularity instance start --bind $(pwd):/home/ilc/data --bind /cvmfs/clicdp.cern.ch:/cvmfs/clicdp.cern.ch centos7-ilc_latest.sif ilc-gun`
-
-3) Run the script
+2) Run the script
 
 `singularity run instance://ilc-gun ./docker/generateG4-gun.sh 1`
 
