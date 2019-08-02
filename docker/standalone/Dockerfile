@@ -29,7 +29,11 @@ RUN yum install -y \
         libXmu-devel \
         libXpm-devel \
         libXft-devel \
-        python-devel
+        python-devel \ 
+        boost-devel \
+        subversion \
+        doxygen \
+        texlive 
 
 
 RUN yum -y update
@@ -56,5 +60,6 @@ RUN wget http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/e/eig
 RUN rm -rf /home/ilc/ilcsoft/geant4/build-10.03.p02
 RUN rm -rf /home/ilc/ilcsoft/root/build-6.16.00
 
+RUN ./ilcsoft-install -i --install-prefix ${ILCSOFT} releases/v02-00/release-ilcsoft.cfg
 # Start the image with BASH by default
 CMD ["/bin/bash"]
