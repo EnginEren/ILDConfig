@@ -5,7 +5,7 @@ FROM centos:centos7
 USER root
 ENV HOME /home/ilc
 ENV ILCSOFT /home/ilc/ilcsoft
-ENV SQL /afs/desy.de/project/ilcsoft/sw/x86_64_gcc48_sl6/mysql/5.0.45/
+
 WORKDIR ${HOME}
 
 RUN mkdir -p ${ILCSOFT}
