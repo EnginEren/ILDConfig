@@ -1,0 +1,15 @@
+FROM centos:centos7
+
+# Perform the installation as root:
+USER root
+ENV HOME /home/ilc
+ENV ILCSOFT /home/ilc/ilcsoft
+
+RUN  yum install -y centos-release-scl  
+RUN  yum install -y devtoolset-7-gcc-c++ 
+
+SHELL [ "/usr/bin/scl", "enable", "devtoolset-7"]
+
+WORKDIR ${HOME}/iLCInstall
+
+RUN yum -y update 
